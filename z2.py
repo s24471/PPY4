@@ -4,20 +4,26 @@
 
 liczby = input("Podaj liczby oddzielone pojedynczymi znakami spacji:\n")
 liczby = liczby.split(" ")
-a = []
-for i in liczby:
-    a.append(int(i))
-pierwsze = []
-for i in range(max(a) + 1):
-    pierwsze.append(True)
-pierwsze[0] = False
-pierwsze[1] = False
-for i in range(len(pierwsze)):
-    if pierwsze[i]:
-        kw = i * i
-        while kw < len(pierwsze):
-            pierwsze[kw] = False
-            kw += i
 
-for i in a:
-    print(str(i) + " -> " + str(pierwsze[i]))
+
+def fun(l):
+    a = []
+    for i in l:
+        a.append(int(i))
+    pierwsze = []
+    for i in range(max(a) + 1):
+        pierwsze.append(True)
+    pierwsze[0] = False
+    pierwsze[1] = False
+    for i in range(len(pierwsze)):
+        if pierwsze[i]:
+            kw = i * i
+            while kw < len(pierwsze):
+                pierwsze[kw] = False
+                kw += i
+
+    for i in a:
+        print(str(i) + " -> " + str(pierwsze[i]))
+
+
+fun(liczby)

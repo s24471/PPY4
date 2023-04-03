@@ -13,8 +13,7 @@ print(n)
 szyfr = getpass.getpass("Podaj szyfr: ").upper()
 print(szyfr)
 opt = input("Czy chcesz podać własny alfabet? (0-nie 1-tak): ")
-alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-            'V', 'W', 'X', 'Y', 'Z']
+alphabet = []
 
 
 def getA():
@@ -29,14 +28,25 @@ def getA():
 if opt == "1":
     alphabet = getA()
 
-index = 0
-ans = ""
-for i in n:
-    if alphabet.count(i) == 0:
-        ans += i
-    else:
-        i = alphabet.index(i) + (alphabet.index(szyfr[index % len(szyfr)]))
-        index += 1
-        ans += alphabet[i % len(alphabet)]
 
-print(ans)
+def fun(n, a=None):
+    if a is None:
+        a = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+             'U',
+             'V', 'W', 'X', 'Y', 'Z']
+    index = 0
+    ans = ""
+    for i in n:
+        if a.count(i) == 0:
+            ans += i
+        else:
+            i = a.index(i) + (a.index(szyfr[index % len(szyfr)]))
+            index += 1
+            ans += a[i % len(a)]
+    return ans
+
+
+if opt == 1:
+    print(fun(n, alphabet))
+else:
+    print(fun(n))
