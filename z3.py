@@ -8,8 +8,8 @@
 # Funkcja opcjonalnie przyjmuje dowolny alfabet. Domyślnie używa angielskiego(10%).
 import getpass
 
-n = getpass.getpass("Podaj slowo do zaszyfrowania: ").upper()
-print(n)
+napis = getpass.getpass("Podaj slowo do zaszyfrowania: ").upper()
+print(napis)
 szyfr = getpass.getpass("Podaj szyfr: ").upper()
 print(szyfr)
 opt = input("Czy chcesz podać własny alfabet? (0-nie 1-tak): ")
@@ -47,6 +47,6 @@ def fun(n, a=None):
 
 
 if opt == 1:
-    print(fun(n, alphabet))
+    print(fun(napis, alphabet))
 else:
-    print(fun(n))
+    print(fun(napis))
